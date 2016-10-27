@@ -3,7 +3,7 @@
 
 A Developer's Best Friend is a dynamic PHP-based website application used to generate random data.
 
-Lorem Ipsum Generator:
+<b>Lorem Ipsum Generator:</b>
 Building on a classic, this Lorem Ipsum generator allows the user to specify the number of paragraphs needed as well as the option to generate Lorem Ipsum text according to text case. Options include <u>S</u>entence case, UPPERCASE, and lowercase text- <u>S</u>entence case being the default.
 
 User Generator:
@@ -19,8 +19,8 @@ Based off the xkcd password generator, this application allows the user to gener
 
 ## Resources
 <ul>
-  <li>Lorem Ipsum package: https://packagist.org/packages/joshtronic/php-loremipsum'></li>
-  <li>Faker package: https://packagist.org/packages/fzaninotto/faker'></li>
-  <li>Homepage Style: https://laravel.com'></li>
-  <li>Password generator: www.p2.yanfchen.me>'</li>
+  <li>Lorem Ipsum package: https://packagist.org/packages/joshtronic/php-loremipsum</li>
+  <li>Faker package: https://packagist.org/packages/fzaninotto/faker</li>
+  <li>Homepage Style: https://laravel.com</li>
+  <li>Password generator: www.p2.yanfchen.me</li>
 </ul>
