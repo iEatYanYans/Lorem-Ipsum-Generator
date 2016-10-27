@@ -2,20 +2,28 @@
 <html>
 <head>
     <title>
-        {{-- Yield the title if it exists, otherwise default to 'Foobooks' --}}
         @yield('title','A Developer\'s Best Friend')
     </title>
 
     <meta charset='utf-8'>
-    <link href="/css/lorem.css" type='text/css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <link href="/css/welcome.css" type='text/css' rel='stylesheet'>
 
-    {{-- Yield any page specific CSS files or anything else you might want in the <head> --}}
     @yield('head')
 
 </head>
 <body>
 
     <header>
+      <div class= 'header-main'>
+      <a href="/"> A Developer's Best Friend </a><br>
+    </div>
+    <div class= 'header-sub'>
+      <a href ='lorem'> Lorem Ipsum Generator</a> &nbsp
+      <a href = 'usergenerator'> User Generator</a>  &nbsp
+      <a href = 'passwordgenerator'> Password Generator</a><br />
+    </div>
+      <br>
     </header>
 
     <section>
@@ -24,7 +32,7 @@
     </section>
 
     <footer>
-        <br>&copy; {{ date('Y') }}
+        <br><br><br><div class= 'footer'> <br>&copy; {{ date('Y') }} Yan Chen</div>
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>

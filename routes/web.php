@@ -20,3 +20,6 @@ Route::post('/lorem', 'PageController@LoremGen')->name('page.loremgen');
 
 Route::get('/usergenerator', 'PageController@user')->name('page.user');
 Route::post('/usergenerator', 'PageController@UserGen')->name('page.usergen');
+
+Route::get('/passwordgenerator', 'PageController@password')->name('page.password');
+Route::post('/passwordgenerator', 'PageController@PwGen')->name('page.pwgen');
