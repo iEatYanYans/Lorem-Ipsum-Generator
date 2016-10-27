@@ -24,9 +24,9 @@
                 </div>
             </div>
         </div>
-    </body>
 
     <footer>
         <div class= 'footer'> <br>&copy; {{ date('Y') }} </div>
     </footer>
+    </body>
 </html>
