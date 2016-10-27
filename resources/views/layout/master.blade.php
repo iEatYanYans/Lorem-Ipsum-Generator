@@ -19,8 +19,8 @@
       <a href="/"> A Developer's Best Friend </a><br>
     </div>
     <div class= 'header-sub'>
-      <a href ='lorem'> Lorem Ipsum Generator</a> &amp;nbsp
-      <a href = 'usergenerator'> User Generator</a>  &amp;nbsp
+      <a href ='lorem'> Lorem Ipsum Generator</a> &nbsp
+      <a href = 'usergenerator'> User Generator</a>  &nbsp
       <a href = 'passwordgenerator'> Password Generator</a><br />
     </div>
       <br>
