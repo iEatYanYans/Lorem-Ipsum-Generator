@@ -1,49 +1,34 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Http\Requests;
 
 class PageController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    //Displays the form for Lorem Ipsum generator
     public function lorem()
     {
         return view('lorem.form');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    //Displays the form for User generator
     public function user()
     {
         return view('user.form');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function loremgen(Request $request)
+    // Logic for validating and processing Lorem Ipsum generator form parameters
+    public function LoremGen(Request $request)
     {
-        //return 'Process ' .$_POST['paragraphs'];
-        #Validate Paragraph data
+        #Validate paragraph data
         $this -> validate($request, [
           'parameter' => 'required|numeric|min:1|max:99',
         ]);
 
         #Code runs when validation passes
         $parameter = $request->input('parameter');
-        $radio = $request->input('case'); //output is 'sentence'
+        $radio = $request->input('case'); //default is 'sentence'
 
         $lipsum = new \joshtronic\LoremIpsum();
         $result = $lipsum->paragraphs($parameter, 'p');
@@ -55,55 +40,52 @@ class PageController extends Controller
             $result = strtolower($result);
           }
           else{
-            //do nothing since default is sentence case.
+            #do nothing since default is sentence case.
           };
 
-        return $result;
+        return view('lorem.results') ->with('result', $result);
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    //Logic for validating and processing User generator parameters.
+    public function UserGen(Request $request)
     {
-        //
-    }
+        //require_once '/path/to/Faker/src/autoload.php';
+        $this->validate($request,['parameter' => 'required|numeric|min:1|max:99']);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+        $parameter = $request ->input('parameter');
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+        #requests the array of attributes and sets them to a variable
+        $checked = $request->input('attributes');
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        //Creates a faker from the faker Factory
+        for ($i=0; $i<$parameter; $i++){
+          $faker = \Faker\Factory::create();
+          $name[] = $faker->image;
+          $name[] = $faker->name; //puts names in an array of names
+
+          if (in_array('number', $checked)){
+            $name[] = $faker->phonenumber;
+          }
+          if(in_array('location', $checked)){
+            $name[] = $faker->address;
+          }
+          if(in_array('job', $checked)){
+            $name[] = $faker->company;
+          }
+          if(in_array('profile', $checked)){
+            $name[] = $faker->text;
+
+          }
+          else{
+            //do nothing
+          }
+        }
+        //$checked = dd($checked);
+        $name = dump($name);
+        //return $name;
+        //return $result;
+        return view('user.results')->with('name', $name);
+        //return $checked;
     }
 }

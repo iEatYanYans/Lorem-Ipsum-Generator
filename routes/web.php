@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/lorem', 'PageController@lorem')->name('page.lorem');
-Route::post('/lorem', 'PageController@loremgen')->name('page.loremgen');
+Route::post('/lorem', 'PageController@LoremGen')->name('page.loremgen');
 
 Route::get('/usergenerator', 'PageController@user')->name('page.user');
-Route::post('/usergenerator', 'PageController@usergen')->name('page.usergen');
+Route::post('/usergenerator', 'PageController@UserGen')->name('page.usergen');
